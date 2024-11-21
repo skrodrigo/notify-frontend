@@ -9,10 +9,11 @@ export function Header() {
 				<Link href="/" className="w-12 h-12">
 					<Image
 						src="/logo.svg"
-						alt="Notify"
-						width={100}
-						height={100}
+						width={1000}
+						height={1000}
+						alt="Trakio Logo"
 						priority
+						quality={100}
 					/>
 				</Link>
 
