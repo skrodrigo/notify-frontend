@@ -1,6 +1,5 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -26,11 +25,29 @@ export default function NewsPage() {
 					"'Flamengo até morrer': Gabigol faz postagem no aniversário do clube",
 				description:
 					"Nesta sexta-feira, o Flamengo comemora 123 anos de vida. Apesar de estar na final...",
-				date: "18/11/2024",
+				date: "15/11/2024",
 				author: "Rodrigo Carvalho",
-				imageUrl: "/placeholder.svg?height=200&width=300",
+				imageUrl: "/flamengo.png",
 			},
-			// ... outros itens de notícia
+			{
+				id: 2,
+				title:
+					"Meta é multada na União Europeia por vincular serviço de classificados",
+				description:
+					"Comissão Europeia disse que Meta abusou de sua posição dominante no mercado de redes sociais. Empresa nega que tenha violado a lei e disse que vai recorrer da decisão.",
+				date: "15/11/2024",
+				author: "Rodrigo Carvalho",
+				imageUrl: "/meta.png",
+			},
+			{
+				id: 3,
+				title: "Google começa a liberar aplicativo do robô Gemini para iPhone",
+				description:
+					"Nesta sexta-feira, o Flamengo comemora 123 anos de vida. Apesar da rara falta competitiva de seu artilheiro pelo Rubro-Negro, Gabigol não deixou de parabenizar o clube em suas redes sociais.",
+				date: "15/11/2024",
+				author: "Rodrigo Carvalho",
+				imageUrl: "/gemini.png",
+			},
 		];
 
 		const found = mockNews.find((item) => item.id === Number(params.id));
@@ -40,30 +57,30 @@ export default function NewsPage() {
 	if (!newsItem) {
 		return (
 			<div className="min-h-screen bg-black text-white flex items-center justify-center">
-				<h1>Notícia não encontrada</h1>
+				<h1 className="text-2xl">Notícia não encontrada</h1>
 			</div>
 		);
 	}
 
 	return (
 		<div className="min-h-screen bg-black text-white">
-			<main className="container mx-auto px-4 py-8">
-				<Card className="bg-gray-900">
-					<Image
-						src={newsItem.imageUrl}
-						alt={newsItem.title}
-						width={1200}
-						height={600}
-						className="w-full object-cover"
-					/>
-					<CardContent className="p-6">
-						<h1 className="text-3xl font-bold">{newsItem.title}</h1>
-						<div className="mt-4 text-gray-400">
-							<span>{newsItem.date}</span> - <span>{newsItem.author}</span>
-						</div>
-						<p className="mt-6 text-gray-300">{newsItem.description}</p>
-					</CardContent>
-				</Card>
+			<main className="max-w-5xl mx-auto px-4 py-8">
+				<h1 className="text-5xl font-bold mb-8">{newsItem.title}</h1>
+				<Image
+					src={newsItem.imageUrl}
+					alt={newsItem.title}
+					width={1200}
+					height={600}
+					className="w-full h-[500px] object-cover rounded-lg mb-8"
+				/>
+				<div className="flex items-center text-blue-500 mb-8">
+					<span>{newsItem.date}</span>
+					<span className="mx-2">•</span>
+					<span>{newsItem.author}</span>
+				</div>
+				<div className="text-gray-300 text-lg leading-relaxed whitespace-pre-wrap">
+					{newsItem.description}
+				</div>
 			</main>
 		</div>
 	);
