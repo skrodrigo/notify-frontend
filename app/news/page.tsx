@@ -54,7 +54,7 @@ export default function NewsPage() {
 					<h1 className="text-5xl font-bold">
 						Publique Notícias em Tempo Real com Facilidade!
 					</h1>
-					<p className="mt-4 text-gray-400 text-lg">
+					<p className="mt-4 text-zinc-400 text-lg">
 						Crie, edite e compartilhe notícias com o mundo usando nossa
 						plataforma simples e poderosa. Acompanhe suas publicações e engaje
 						seu público de maneira eficiente.
@@ -65,7 +65,7 @@ export default function NewsPage() {
 						// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 						<div
 							key={item.id}
-							className="bg-zinc-900 rounded-lg overflow-hidden hover:bg-zinc-800 transition-colors cursor-pointer"
+							className=" rounded-lg overflow-hidden border border-zinc-800 transition-colors cursor-pointer"
 							onClick={() => router.push(`/news/${item.id}`)}
 						>
 							<div className="flex flex-col md:flex-row">
@@ -82,10 +82,12 @@ export default function NewsPage() {
 								</div>
 								<div className="flex-1 p-6">
 									<h2 className="text-2xl font-bold mb-3">{item.title}</h2>
-									<p className="text-gray-400 mb-4">{item.description}</p>
-									<div className="flex items-center text-sm text-blue-500">
+									<p className="text-zinc-400 mb-4">{item.description}</p>
+									<div className="flex items-center text-sm text-zinc-400">
+										{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+										<div className="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
 										<span>{item.date}</span>
-										<span className="mx-2">•</span>
+										<span className="mx-2">-</span>
 										<span>{item.author}</span>
 									</div>
 								</div>
