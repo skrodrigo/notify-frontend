@@ -19,7 +19,6 @@ export default function NewsPage() {
 	const [newsItem, setNewsItem] = useState<NewsItem | null>(null);
 
 	useEffect(() => {
-		// Simulando dados - Em um caso real, você buscaria da API
 		const mockNews: NewsItem[] = [
 			{
 				id: 1,
